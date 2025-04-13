@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0 auto;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#container {
+  transition: transform 0.3s ease;
+}
+
+/* Add skew effect when active */
+.skew-active {
+  /* transform: skew(-10deg, -2deg);  */
+}
+
+/* Optional: Add a different skew effect or none when inactive */
+.skew-inactive {
+  transform: skew(0deg, 0deg);
+}
+
+/* Other existing styles */
+.voice-line {
+  transition: background-color 0.3s ease;
+}
+
+.active .voice-line {
+  background-color: rgba(255, 255, 255, 0.8); /* Example color */
+}
+
+.inactive .voice-line {
+  background-color: rgba(255, 255, 255, 0.3); /* Example color */
+}
