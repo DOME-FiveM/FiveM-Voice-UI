@@ -25,7 +25,6 @@ const Voice = () => {
             break;
           case "stopVoice":
             setIsActive(false);
-            setMessageType(null); // Reset the messageType when voice stops
             break;
           case "whisper":
             setMessageType("whisper");
