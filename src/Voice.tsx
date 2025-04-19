@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import "./VoiceLines.css";
 
-type MessageType = "whisper" | "talking" | "shouting" | null;
+type MessageType = "whisper" | "normal" | "shouting" | null;
 
 const Voice = () => {
   // States
   const [isActive, setIsActive] = useState<boolean>(true);
   const [messageType, setMessageType] = useState<MessageType>("whisper");
-  const [isVisible, setIsVisible] = useState<boolean>(true); 
+  const [isVisible, setIsVisible] = useState<boolean>(false); 
 
   useEffect(() => {
     const handleMessage = (event: any) => {
@@ -30,8 +30,8 @@ const Voice = () => {
           case "whisper":
             setMessageType("whisper");
             break;
-          case "talking":
-            setMessageType("talking");
+          case "normal":
+            setMessageType("normal");
             break;
           case "shouting":
             setMessageType("shouting");
@@ -53,6 +53,8 @@ const Voice = () => {
   }
 
   return (
+    <div className="actual_container">
+
     <div id="container" className={`flex items-end justify-end h-full w-full`}>
       <div
         className={`m-7 mx-8 flex flex-col gap-3 items-center skew-active ${
@@ -76,7 +78,7 @@ const Voice = () => {
           <div
             className={`border-black border-opacity-40 border-[1px] w-6 h-[.4rem] rounded-full shadow-sm shadow-[#ffffff25]  ${
               messageType === "whisper" ||
-              messageType === "talking" ||
+              messageType === "normal" ||
               messageType === "shouting"
                 ? "bg-[#a5f984]"
                 : "bg-black"
@@ -84,7 +86,7 @@ const Voice = () => {
           ></div>
           <div
             className={`border-black border-opacity-40  border-[1px] w-6 h-[.4rem] rounded-full shadow-sm shadow-[#ffffff25]  ${
-              messageType === "talking" || messageType === "shouting"
+              messageType === "normal" || messageType === "shouting"
                 ? "bg-[#a5f984]"
                 : "bg-black"
             }`}
@@ -96,6 +98,7 @@ const Voice = () => {
           ></div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
